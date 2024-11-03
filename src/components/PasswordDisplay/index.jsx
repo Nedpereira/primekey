@@ -11,6 +11,8 @@ import {
   SliderFilledTrack,
   SliderThumb,
   useColorMode,
+  Button,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { FiCopy } from "react-icons/fi";
 import { FaDice } from "react-icons/fa";
@@ -28,6 +30,7 @@ function PasswordDisplay() {
   const showToast = useCustomToast();
   const bgColor = useColorModeValue("gray.200", "gray.700");
   const textColor = useColorModeValue("black", "white");
+  const [isLargerThanMobile] = useMediaQuery("(min-width: 768px)");
 
   const [password, setPassword] = useState("8#oH21A");
   const [useUppercase, setUseUppercase] = useState(true);
@@ -145,18 +148,20 @@ function PasswordDisplay() {
               color="black"
             >
               <IconButton
+                size={isLargerThanMobile ? "md" : "sm"}
                 aria-label="Copiar senha"
                 icon={<FiCopy />}
                 onClick={copyToClipboard}
               />
             </Tooltip>
             <Text
+              size={isLargerThanMobile ? "md" : "sm"}
               w="100%"
               ml={2}
               p={2}
               borderRadius={4}
               bg={bgColor}
-              fontSize="lg"
+              fontSize={isLargerThanMobile ? "md" : "sm"}
               fontWeight="bold"
               mr={2}
             >
@@ -169,11 +174,14 @@ function PasswordDisplay() {
                 bg="gray.300"
                 color="black"
               >
-                <IconButton
+                <Button
+                  size={isLargerThanMobile ? "md" : "sm"}
                   aria-label="Gerar nova senha"
-                  icon={<FaDice />}
+                  leftIcon={<FaDice />}
                   onClick={generatePassword}
-                />
+                >
+                  {t("text_button_generate")}
+                </Button>
               </Tooltip>
             </ButtonGroup>
           </Flex>
@@ -191,14 +199,18 @@ function PasswordDisplay() {
             bgColor={colorMode === "dark" ? "gray.700" : "gray.200"}
             onClick={() => checkPassword(password)}
           >
-            <LockIcon color="#36a4e7" mr={1} />
+            <LockIcon
+              size={isLargerThanMobile ? "md" : "sm"}
+              color="#36a4e7"
+              mr={1}
+            />
             <Text
               aria-label="info-verify-password"
               _hover={{
                 textDecoration: "none",
                 color: "#36a4e7",
               }}
-              fontSize="sm"
+              fontSize={isLargerThanMobile ? "md" : "sm"}
               mt={1}
             >
               {t("verifyPassword")}
@@ -214,7 +226,7 @@ function PasswordDisplay() {
               color="black"
             >
               <Text
-                fontSize="md"
+                fontSize={isLargerThanMobile ? "md" : "sm"}
                 fontWeight="bold"
                 px={2}
                 mr={2}
@@ -225,6 +237,7 @@ function PasswordDisplay() {
               </Text>
             </Tooltip>
             <Slider
+              size={isLargerThanMobile ? "md" : "sm"}
               id="slider"
               aria-label="Comprimento da senha"
               defaultValue={8}
@@ -245,7 +258,7 @@ function PasswordDisplay() {
             isChecked={useUppercase}
             onChange={(e) => setUseUppercase(e.target.checked)}
             colorScheme="blue"
-            fontSize="sm"
+            fontSize={isLargerThanMobile ? "md" : "sm"}
             fontWeight="bold"
           >
             {t("uppercase")}
@@ -254,7 +267,7 @@ function PasswordDisplay() {
             isChecked={useNumbers}
             onChange={(e) => setUseNumbers(e.target.checked)}
             colorScheme="blue"
-            fontSize="md"
+            fontSize={isLargerThanMobile ? "md" : "sm"}
             fontWeight="bold"
           >
             {t("numbers")}
@@ -263,7 +276,7 @@ function PasswordDisplay() {
             isChecked={useSymbols}
             onChange={(e) => setUseSymbols(e.target.checked)}
             colorScheme="blue"
-            fontSize="md"
+            fontSize={isLargerThanMobile ? "md" : "sm"}
             fontWeight="bold"
           >
             {t("symbols")}
