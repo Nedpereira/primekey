@@ -44,6 +44,7 @@ i18n.use(initReactI18next).init({
         password_security_verification: "How We Verify Password Security?",
         password_security_verification_description:
           "We use a secure method to check if your password has been exposed in previous data breaches. This involves sending a partial hash of your password to a trusted service, which compares it against known breached passwords. Your full password is never sent or stored.",
+        text_button_generate: "generate",
       },
     },
     pt: {
@@ -88,6 +89,7 @@ i18n.use(initReactI18next).init({
           "Como verificamos a segurança da senha?",
         password_security_verification_description:
           "Usamos um método seguro para verificar se sua senha foi exposta em violações de dados anteriores. Isso envolve o envio de um hash parcial de sua senha para um serviço confiável, que a compara com senhas violadas conhecidas. Sua senha completa nunca é enviada ou armazenada.",
+        text_button_generate: "Gerar",
       },
     },
     es: {
@@ -134,6 +136,7 @@ i18n.use(initReactI18next).init({
           "¿Cómo comprobaremos la seguridad de la contraseña?",
         password_security_verification_description:
           "Utilizamos un método seguro para comprobar si su contraseña ha quedado expuesta en violaciones de datos anteriores. Esto implica enviar un hash parcial de su contraseña a un servicio confiable, que la compara con contraseñas violadas conocidas. Su contraseña completa nunca se envía ni se almacena.",
+        text_button_generate: "generar",
       },
     },
   },
